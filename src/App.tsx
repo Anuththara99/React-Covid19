@@ -6,6 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import GlobalDataFetch from './component/GlobalDataFetch'
+import CountryDataFetch from './component/CountryDataFetch'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,7 +51,13 @@ function App() {
           <Tab label="User Data"  />
         </Tabs>
         <TabPanel value={value} index={0}>
-        <GlobalDataFetch/>
+          <div>
+            <GlobalDataFetch/>
+          </div>
+          <div>
+            <CountryDataFetch/>
+          </div>
+        
         </TabPanel>
         <TabPanel value={value} index={1}>
         User Data
