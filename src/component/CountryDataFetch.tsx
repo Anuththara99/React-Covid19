@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from "axios"
 import { Card, CardContent, CardHeader, Tab ,Tabs, Typography} from '@material-ui/core'
+import TextField from '@material-ui/core/TextField';
+import type {FormEvent} from 'react'
 
 export interface Countries{
     country: string;
@@ -17,6 +19,9 @@ export interface Countries{
 function CountryDataFetch(){
 
     const [countries, setCountry] =useState<Countries[]>([])
+    const [searchCountry, setSearchCountry] = useState("")
+
+
     useEffect(() => {
         axios.get<Countries[]>("https://coronavirus-19-api.herokuapp.com/countries" )
         .then(res =>
@@ -35,12 +40,19 @@ function CountryDataFetch(){
                 Coronavirus By Country
             </h2>
             <div>
-               <p>Search</p>
+            <TextField id="standard-basic" label="Search by Country" value={searchCountry} style={{width:400}} 
+            onChange={(e)=>setSearchCountry(e.target.value)}/>
             </div>
             
             <div style={{maxHeight:400,overflowY:'scroll'}}>
             
-                {countries.map((row)=>(
+                {countries.filter((val)=>{
+                    if(searchCountry == ""){
+                        return val
+                    }else if(val.country.toLocaleLowerCase().includes(searchCountry.toLocaleLowerCase())){
+                        return val
+                    }
+                }).map((row)=>(
                     <Card style={{width:1000, height:200,marginLeft:150,marginTop:100}}>
                     <CardHeader subheader="Global" title={row.country}/>
                     
