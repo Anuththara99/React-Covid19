@@ -3,6 +3,7 @@ import axios from "axios"
 import { Card, CardContent, CardHeader, Tab ,Tabs, Typography} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import type {FormEvent} from 'react'
+import { blueGrey } from '@material-ui/core/colors';
 
 export interface Countries{
     country: string;
@@ -36,7 +37,7 @@ function CountryDataFetch(){
 
     return(
         <div style={{marginTop:50}}>
-            <h2>
+            <h2 style={{ fontSize:32}}>
                 Coronavirus By Country
             </h2>
             <div>
@@ -54,7 +55,7 @@ function CountryDataFetch(){
                     }
                 }).map((row)=>(
                     <Card style={{width:1000, height:200,marginLeft:150,marginTop:100}}>
-                    <CardHeader subheader="Global" title={row.country}/>
+                    <CardHeader subheader="Global"  title={row.country} style={{color:"#008080"}}/>
                     
                     <CardContent >
                         <Typography variant="body2" color="textPrimary" >
