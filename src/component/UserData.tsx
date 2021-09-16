@@ -22,8 +22,7 @@ function UserData(){
                 <CardHeader  title="View Covid Cases"/>
                 <CardContent >
                     <Typography variant="body2" color="textSecondary">
-                    {/* <ViewFormData/> */}
-                    view form data
+                    <ViewFormData/>
                     </Typography>
                 </CardContent>
             </Card>
