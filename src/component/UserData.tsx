@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, Tab ,Tabs, Typography} from '@material-ui/core';
-
+import Form from './Form'
+import ViewFormData from './ViewFormData'
 
 
 function UserData(){
@@ -12,8 +13,8 @@ function UserData(){
                 <CardHeader  title="Add New Covid Cases"/>
                 <CardContent >
                     <Typography variant="body2" color="textSecondary">
-                    {/* <Form/> */}
-                    form
+                    <Form/>
+                   
                     </Typography>
                 </CardContent>
             </Card>
@@ -21,8 +22,8 @@ function UserData(){
                 <CardHeader  title="View Covid Cases"/>
                 <CardContent >
                     <Typography variant="body2" color="textSecondary">
-                    {/* <ShowFormData/> */}
-                    show data
+                    {/* <ViewFormData/> */}
+                    view form data
                     </Typography>
                 </CardContent>
             </Card>
