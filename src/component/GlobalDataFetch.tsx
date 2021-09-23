@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from "react"
 import axios from "axios"
 import { Card, CardContent, CardHeader, CardMedia, Tab ,Tabs, Typography} from '@material-ui/core';
+import PieChart from './PieChart'
+import { DecimationAlgorithm } from "chart.js";
 
 export interface GlobalData{
     cases: number;
@@ -10,7 +12,7 @@ export interface GlobalData{
 
 function GlobalDataFetch(){
 
-
+    
     const [globalData, setGlobalData] =useState<GlobalData>({cases:0,deaths:0,recovered:0})
     useEffect(() => {
         axios.get<GlobalData>("https://coronavirus-19-api.herokuapp.com/all" )
@@ -23,6 +25,13 @@ function GlobalDataFetch(){
             console.log(err)
         })
     },[])
+
+    const [cases,setcase] = useState<number>(globalData.cases)
+    const [deaths,setDeaths] = useState<number>(globalData.deaths)
+    const [recovers,setRecovers] = useState<number>(globalData.recovered)
+
+
+
     return(
         <div>
             <h2 style={{ fontSize:32}}>
@@ -53,6 +62,9 @@ function GlobalDataFetch(){
                     </Typography>
                 </CardContent >
             </Card>
+            </div>
+            <div>
+            <PieChart cases={globalData.cases} deaths={globalData.deaths} recovers={globalData.recovered}/>
             </div>
                
            
