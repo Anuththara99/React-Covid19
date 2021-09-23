@@ -26,10 +26,15 @@ function GlobalDataFetch(){
         })
     },[])
 
-    const [cases,setcase] = useState<number>(globalData.cases)
-    const [deaths,setDeaths] = useState<number>(globalData.deaths)
-    const [recovers,setRecovers] = useState<number>(globalData.recovered)
+    const [cases,setCase] = useState<number>(0)
+    const [deaths,setDeaths] = useState<number>(0)
+    const [recovers,setRecovers] = useState<number>(0)
 
+    useEffect(()=>{
+        setCase(globalData.cases)
+        setDeaths(globalData.deaths)
+        setRecovers(globalData.recovered)
+    },[globalData.cases,globalData.deaths,globalData.recovered])
 
 
     return(
@@ -37,8 +42,10 @@ function GlobalDataFetch(){
             <h2 style={{ fontSize:32}}>
                 Global Coronavirus Information
             </h2>
+            {/* Global covid Information cards */}
             <div style={{marginLeft:150,marginTop:100,paddingLeft:10}}>
             <Card style={{width:300, height:200,float:'left'}}>
+                {/* Cases Card */}
                 <CardHeader subheader="Global" title="Coronavirus Cases"/>
                 <CardContent >
                     <Typography variant="h6" color="primary"  >
@@ -47,6 +54,7 @@ function GlobalDataFetch(){
                 </CardContent>
             </Card>
             <Card style={{width:300, height:200,float:'left'}}>
+                {/* Deaths Card */}
                 <CardHeader subheader="Global" title="Deaths"/>
                 <CardContent >
                     <Typography variant="h6" color="primary">
@@ -55,6 +63,7 @@ function GlobalDataFetch(){
                 </CardContent >
             </Card>
             <Card style={{width:300, height:200}}>
+                {/* Recoverd Crads */}
                 <CardHeader subheader="Global" title="Recovered"/>
                 <CardContent >
                     <Typography variant="h6" color="primary">
@@ -63,8 +72,9 @@ function GlobalDataFetch(){
                 </CardContent >
             </Card>
             </div>
+            {/* Pie chart */}
             <div>
-            <PieChart cases={globalData.cases} deaths={globalData.deaths} recovers={globalData.recovered}/>
+            <PieChart cases={cases} deaths={deaths} recovers={recovers}/>
             </div>
                
            

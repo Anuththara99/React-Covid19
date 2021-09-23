@@ -9,6 +9,7 @@ interface dataProps{
 
 const PieChart:React.FC<dataProps> = ({cases,deaths,recovers})=>{
 
+    //get data from GlobalDataFetch component
     const [getCase,setCase] = useState<number>(0);
     const [getDeaths,setDeaths] = useState<number>(0);
     const [getRecovers,setRecovers] = useState<number>(0);
@@ -45,20 +46,6 @@ const PieChart:React.FC<dataProps> = ({cases,deaths,recovers})=>{
         }
 
     }
-
-    // const options = {
-    //     plugins:{
-    //         legend :{
-    //             display :true,
-    //             position: "bottom"
-    //         },
-    //         title:{
-    //             text:"Global covid Information",
-    //             display : true,
-    //             fontSize : 20
-    //         }
-    //     }
-    // }
 
     return(
 
