@@ -1,8 +1,7 @@
 import React, {useState,useEffect} from "react"
 import axios from "axios"
-import { Card, CardContent, CardHeader, CardMedia, Tab ,Tabs, Typography} from '@material-ui/core';
+import { Card, CardContent, CardHeader, Typography} from '@material-ui/core';
 import PieChart from './PieChart'
-import { DecimationAlgorithm } from "chart.js";
 
 export interface GlobalData{
     cases: number;

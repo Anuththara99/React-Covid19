@@ -1,9 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from "axios"
-import { Card, CardContent, CardHeader, Tab ,Tabs, Typography} from '@material-ui/core'
+import { Card, CardContent, CardHeader,Typography} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
-import type {FormEvent} from 'react'
-import { blueGrey } from '@material-ui/core/colors';
 
 export interface Countries{
     country: string;
@@ -48,7 +46,7 @@ function CountryDataFetch(){
             <div style={{maxHeight:400,overflowY:'scroll'}}>
             
                 {countries.filter((val)=>{
-                    if(searchCountry == ""){
+                    if(searchCountry === ""){
                         return val
                     }else if(val.country.toLocaleLowerCase().includes(searchCountry.toLocaleLowerCase())){
                         return val
