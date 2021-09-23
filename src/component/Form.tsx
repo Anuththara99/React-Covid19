@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, TextField } from '@material-ui/core'
 import type {FormEvent} from 'react'
 import { Card, CardContent, CardHeader, Tab ,Tabs, Typography} from '@material-ui/core';
-import ViewFormData from './ViewFormData'
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,13 +11,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-// export interface covidCases{
-//     email:string,
-//     country:string,
-//     newCases:number,
-//     totCases:number,
-//     totDeaths:number
-// }
 
 export interface CovidCase{
     country: string;
@@ -48,8 +40,6 @@ function Form(){
 
     const classes = useStyles();
 
-    // //array of case objects
-    // const [covidCases,setCovidCases] =useState([{email:"",country:"",newCases:"",totCases:"",totDeaths:""}])
     //array of case objects
     const [covidCases,setCovidCases] =useState(getDataFromLS())
 

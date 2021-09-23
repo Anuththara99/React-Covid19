@@ -10,6 +10,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
+export interface CovidCase{
+    country: string;
+    newcases: number;
+    totcases: number;
+    totDeaths:number;
+    
+}
+
+
 //getting the values from local storage
 const getDataFromLS= ()=>{
     const data = localStorage.getItem('covidCases');
