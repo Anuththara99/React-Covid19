@@ -22,9 +22,9 @@ const PieChart:React.FC<dataProps> = ({cases,deaths,recovers})=>{
     },[cases,deaths,recovers])
 
     const data = {
-        lables:["cases","deaths","recovered"],
+        labels:['cases','deaths','recovered'],
         datasets:[
-            {lable:'Global covid Information',
+            {label:'Global covid Information',
             backgroundColor:["#00BFFF","#FF7F50","#90EE90"],
             borderColor:"rgba(0,0,0,1)",
             borderWidth:2,
@@ -35,11 +35,13 @@ const PieChart:React.FC<dataProps> = ({cases,deaths,recovers})=>{
 
     const options ={
         plugins:{
-            legend:{
+            legends:{
                 display:true,
+                position: "top"
+
             },
             title:{
-                text:"Covid Cases ",
+                text:"Number of Cases in the world ",
                 display:true,
                 fonstSize:true
             }
